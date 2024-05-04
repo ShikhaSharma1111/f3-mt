@@ -42,7 +42,7 @@ function loopObject(obj) {
 // Row creating function
 function createRow(obj) {
     const row = document.createElement("tr");
-    row.id = ${obj.id};
+    row.id = `${obj.id}`;
     row.classList.add('row');
     row.innerHTML = `<td><img src="${obj.image}" alt="${obj.name}"/> ${obj.name}</td>
                      <td>${obj.symbol.toUpperCase()}</td>
@@ -77,14 +77,5 @@ searchBox.addEventListener("input", (e) => {
 sortMktCap.addEventListener("click", (e) => {
     const arr = JSON.parse(localStorage.getItem("coinData"));
     const sorted = arr.sort((a, b) => parseFloat(a.market_cap) - parseFloat(b.market_cap));
-    loopObject(sorted);
-});
-
-// Sorting event for percentage button
-sortPercentage.addEventListener("click", (e) => {
-    const arr = JSON.parse(localStorage.getItem("coinData"));
-    const sorted = arr.sort(
-        (a, b) => parseFloat(a.price_change_percentage_24h) - parseFloat(b.price_change_percentage_24h)
-    );
     loopObject(sorted);
 });
