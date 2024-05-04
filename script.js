@@ -79,3 +79,12 @@ sortMktCap.addEventListener("click", (e) => {
     const sorted = arr.sort((a, b) => parseFloat(a.market_cap) - parseFloat(b.market_cap));
     loopObject(sorted);
 });
+
+// Sorting event for percentage button
+sortPercentage.addEventListener("click", (e) => {
+    const arr = JSON.parse(localStorage.getItem("coinData"));
+    const sorted = arr.sort(
+        (a, b) => parseFloat(a.price_change_percentage_24h) - parseFloat(b.price_change_percentage_24h)
+    );
+    loopObject(sorted);
+});
